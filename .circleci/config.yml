@@ -19,7 +19,7 @@ jobs:
           command: make main
       - run:
           name: run
-          command: ./main
+          command: make run
 workflows:
   example-workflow:
     jobs:
