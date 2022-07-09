@@ -20,4 +20,12 @@ jobs:
       - run:
           name: run
           command: ./main
+workflows:
+  example-workflow:
+    jobs:
+      - hello-world
+      - real-build
+    
+    
+
   
