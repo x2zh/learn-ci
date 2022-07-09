@@ -20,11 +20,27 @@ jobs:
       - run:
           name: run
           command: make run
+  real-deploy:
+    docker:
+      - image: alpine:3.15
+    steps:
+      - run:
+          name: deploy
+          command: |
+            echo 'deploying'
 workflows:
   example-workflow:
     jobs:
       - hello-world
       - real-build
+      - hold-for-approval:
+          type: approval
+          requires:
+            - hello-world
+            - real-build
+      -real-deploy:
+          requires:
+            - hold-for-approval
     
     
 
