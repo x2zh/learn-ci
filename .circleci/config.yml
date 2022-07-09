@@ -38,7 +38,7 @@ workflows:
           requires:
             - hello-world
             - real-build
-      -real-deploy:
+      - real-deploy:
           requires:
             - hold-for-approval
     
